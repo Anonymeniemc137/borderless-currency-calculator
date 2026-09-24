@@ -1,0 +1,305 @@
+/**
+ * Borderless Currency Calculator frontend styles.
+ *
+ * CSS custom properties are set inline per-site from the admin settings
+ * (border radius, font size, width, and — when the custom theme is
+ * disabled — colors). Defaults below mirror the original custom theme.
+ */
+
+.cconv-currency-converter {
+	--bccalc-primary: #2271b1;
+	--bccalc-secondary: #135e96;
+	--bccalc-background: #ffffff;
+	--bccalc-text: #1d2327;
+	--bccalc-button: #2271b1;
+	--bccalc-button-text: #ffffff;
+	--bccalc-border-radius: 6px;
+	--bccalc-font-size: 15px;
+	--bccalc-width: 100%;
+
+	box-sizing: border-box;
+	width: 100%;
+	max-width: var(--bccalc-width);
+	margin: 0 auto;
+	padding: 24px;
+	background: var(--bccalc-background);
+	color: var(--bccalc-text);
+	font-size: var(--bccalc-font-size);
+	border-radius: var(--bccalc-border-radius);
+	border: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.cconv-currency-converter * {
+	box-sizing: border-box;
+}
+
+.cconv-form-row {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(min(100%, 140px), 1fr));
+	align-items: end;
+	gap: 12px;
+}
+
+.cconv-form-group {
+	display: flex;
+	flex-direction: column;
+	min-width: 0;
+}
+
+.cconv-switch-group {
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+}
+
+.cconv-form-group label {
+	margin-bottom: 6px;
+	font-weight: 600;
+	font-size: 0.9em;
+}
+
+.cconv-input,
+.cconv-select {
+	width: 100%;
+	max-width: 100%;
+	padding: 10px 12px;
+	font-size: 1em;
+	color: var(--bccalc-text);
+	background: #fff;
+	border: 1px solid #ccd0d4;
+	border-radius: var(--bccalc-border-radius);
+	line-height: 1.4;
+}
+
+.cconv-input:focus,
+.cconv-select:focus {
+	outline: 2px solid var(--bccalc-primary);
+	outline-offset: 1px;
+	border-color: var(--bccalc-primary);
+}
+
+.cconv-dropdown {
+	position: relative;
+	width: 100%;
+}
+
+.cconv-dropdown-toggle {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	width: 100%;
+	padding: 10px 12px;
+	font-size: 1em;
+	color: var(--bccalc-text);
+	background: #fff;
+	border: 1px solid #ccd0d4;
+	border-radius: var(--bccalc-border-radius);
+	line-height: 1.4;
+	text-align: left;
+	cursor: pointer;
+}
+
+.cconv-dropdown-toggle:hover {
+	border-color: var(--bccalc-primary);
+}
+
+.cconv-dropdown-toggle:focus-visible {
+	outline: 2px solid var(--bccalc-primary);
+	outline-offset: 1px;
+	border-color: var(--bccalc-primary);
+}
+
+.cconv-dropdown-flag {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	flex: 0 0 24px;
+	width: 24px;
+	font-size: 18px;
+	line-height: 1;
+}
+
+.cconv-dropdown-code {
+	font-weight: 600;
+	white-space: nowrap;
+}
+
+.cconv-dropdown-caret {
+	flex: 0 0 auto;
+	margin-left: auto;
+	width: 0;
+	height: 0;
+	border-left: 5px solid transparent;
+	border-right: 5px solid transparent;
+	border-top: 6px solid currentColor;
+	opacity: 0.6;
+}
+
+.cconv-dropdown-menu {
+	position: absolute;
+	top: calc(100% + 4px);
+	left: 0;
+	right: 0;
+	z-index: 20;
+	margin: 0;
+	padding: 4px;
+	list-style: none;
+	background: #fff;
+	border: 1px solid #ccd0d4;
+	border-radius: var(--bccalc-border-radius);
+	box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12);
+	max-height: 260px;
+	overflow-y: auto;
+	display: none;
+}
+
+.cconv-dropdown-menu.cconv-open {
+	display: block;
+}
+
+.cconv-dropdown-option {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	padding: 8px 10px;
+	cursor: pointer;
+	border-radius: calc(var(--bccalc-border-radius) - 2px);
+	white-space: nowrap;
+}
+
+.cconv-dropdown-option:hover {
+	background: rgba(0, 0, 0, 0.05);
+}
+
+.cconv-dropdown-option:focus {
+	outline: none;
+	background: rgba(0, 0, 0, 0.05);
+}
+
+.cconv-dropdown-option.cconv-selected {
+	background: var(--bccalc-primary);
+	color: var(--bccalc-button-text);
+}
+
+.cconv-switch {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: auto;
+	height: auto;
+	padding: 8px;
+	margin: 0;
+	border: 0;
+	background: transparent;
+	color: var(--bccalc-primary);
+	font-size: 1.3em;
+	line-height: 1;
+	cursor: pointer;
+	transition: transform 0.2s ease, color 0.15s ease;
+}
+
+.cconv-switch:hover,
+.cconv-switch:focus-visible {
+	color: var(--bccalc-secondary);
+}
+
+.cconv-switch:active {
+	transform: rotate(180deg);
+}
+
+.cconv-convert-btn {
+	width: 100%;
+	padding: 10px 20px;
+	font-size: 1em;
+	font-weight: 600;
+	color: var(--bccalc-button-text);
+	background: var(--bccalc-button);
+	border: none;
+	border-radius: var(--bccalc-border-radius);
+	cursor: pointer;
+	transition: opacity 0.15s ease;
+}
+
+.cconv-convert-btn:hover {
+	opacity: 0.9;
+}
+
+.cconv-convert-btn:disabled {
+	opacity: 0.6;
+	cursor: default;
+}
+
+.cconv-result-block {
+	text-align: center;
+	margin-top: 24px;
+}
+
+.cconv-result {
+	margin: 0 0 4px;
+	font-size: 1.8em;
+	font-weight: 700;
+	color: var(--bccalc-secondary);
+	min-height: 1.2em;
+	overflow-wrap: break-word;
+}
+
+.cconv-exchange-rate {
+	margin: 0 0 4px;
+	font-weight: 500;
+	opacity: 0.85;
+	overflow-wrap: break-word;
+}
+
+.cconv-timestamp {
+	margin: 0;
+	font-style: italic;
+	font-size: 0.85em;
+	opacity: 0.7;
+}
+
+.cconv-error {
+	margin: 10px 0 0;
+	color: #d63638;
+	font-weight: 600;
+	display: none;
+}
+
+.cconv-error.cconv-visible {
+	display: block;
+}
+
+.cconv-visually-hidden {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	overflow: hidden;
+	clip: rect(0 0 0 0);
+	white-space: nowrap;
+}
+
+@media (max-width: 768px) {
+	.cconv-currency-converter {
+		max-width: 100%;
+		width: 100%;
+		padding: 16px;
+	}
+
+	.cconv-result {
+		font-size: 1.5em;
+	}
+}
+
+@media (max-width: 560px) {
+	.cconv-form-row {
+		grid-template-columns: 1fr;
+		gap: 10px;
+	}
+
+	.cconv-switch {
+		padding: 12px;
+	}
+
+	.cconv-dropdown-option {
+		white-space: normal;
+	}
+}

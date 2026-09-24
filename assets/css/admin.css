@@ -1,0 +1,64 @@
+/**
+ * Admin styles for the Borderless Currency Calculator settings page.
+ */
+
+.bccalc-bulk-actions {
+	margin-bottom: 8px;
+}
+
+.bccalc-bulk-actions .button {
+	margin-right: 6px;
+}
+
+.bccalc-currency-sortable {
+	max-height: 420px;
+	overflow-y: auto;
+	border: 1px solid #dcdcde;
+	border-radius: 4px;
+	background: #fff;
+	margin: 0;
+	padding: 4px;
+	max-width: 480px;
+}
+
+.bccalc-currency-item {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	padding: 6px 8px;
+	border-bottom: 1px solid #f0f0f1;
+	background: #fff;
+}
+
+.bccalc-currency-item:last-child {
+	border-bottom: none;
+}
+
+.bccalc-currency-item.ui-sortable-helper {
+	box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+.bccalc-currency-item.ui-sortable-placeholder {
+	visibility: visible !important;
+	background: #f0f6fc;
+	border: 1px dashed #2271b1;
+}
+
+.bccalc-drag-handle {
+	cursor: grab;
+	color: #8c8f94;
+}
+
+.bccalc-currency-item label {
+	display: flex;
+	align-items: center;
+	gap: 6px;
+	margin: 0;
+	cursor: pointer;
+}
+
+.bccalc-color-fields p {
+	display: inline-block;
+	margin-right: 24px;
+	vertical-align: top;
+}
